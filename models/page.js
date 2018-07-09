@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 
-var CommentSchema = mongoose.Schema({
+var PageSchema = mongoose.Schema({
+    title: String,
+    thumbnail: String,
+    description: String,
     content: String,
     meta: {
         createdAt: {
@@ -15,7 +18,7 @@ var CommentSchema = mongoose.Schema({
             },
             username: String
         }
-    },
+    }
 });
 
-module.exports = mongoose.model("Comment", CommentSchema);
+module.exports = mongoose.model("Page", PageSchema);

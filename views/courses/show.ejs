@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<h2>Title: <%= course.title %></h2>
+<p><%= course.description %></p>
+<img src="<%= course.thumbnail %>">
+<p>Description: <%= course.content %></p>
+<br>
+<p>By <%= course.meta.author.username %> at <%= course.meta.createdAt %></p>
+<p>is public? <%= course.meta.isPublic %></p>
+<br>
+<% course.pages.forEach(function(page){ %>
+    <h3><%= page.title %></h3>
+<% }); %>
+
+<% course.comments.forEach(function(comments){ %>
+    <h4><%= comment.meta.author.username %></h4>
+    <p><%= comment.content %></p>
+<% }); %>
+
+<% include ../partials/footer %>

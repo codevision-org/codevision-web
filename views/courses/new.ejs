@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<form action="/courses", method="post">
+    <div class="form-group">
+        <input class="form-control" type="text" name="course[title]" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="course[thumbnail]" placeholder="image url">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="course[description]" placeholder="Description">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="course[content]" placeholder="Content">
+    </div>
+    <div class="form-group">
+        <input class="btn btn-lg btn-primary btn-block" type="submit">
+    </div>
+</form>
+
+<% include ../partials/footer %>

@@ -8,14 +8,17 @@ var express = require("express"),
     LocalStrategy = require("passport-local");
 
 // Models
-var Tutorial = require("./models/tutorial"),
+var Course = require("./models/course"),
+    Page = require("./models/page"),
     Comment = require("./models/comment"),
     User = require("./models/user");
 
 // Routes
 var indexRoutes = require("./routes/index"),
-    tutorialsRoutes = require("./routes/tutorials"),
-    commentRoutes = require("./routes/comments");
+    courseRoutes = require("./routes/courses"),
+    commentRoutes = require("./routes/comments"),
+    pageRoutes = require("./routes/pages");
+
 
 // Mongoose configuration
 mongoose.connect(process.env.DATABASEURL);
@@ -45,14 +48,16 @@ app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
+    next();
 });
 
 // Expose all routes
 app.use(indexRoutes);
-app.use("/tutorials", tutorialsRoutes);
-app.use("/tutorials/:id/comments", commentRoutes)
+app.use("/courses", courseRoutes);
+//app.use("/course/:id/comments", commentRoutes)
+//app.use("/course/:id/pages", pagesRoutes)
 
-// Start the server
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("Server has started.");
+// Start the servers
+app.listen(process.env.PORT, function() {
+    console.log("Server started.");
 });

@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<form class="form-inline" action="/courses" method="get">
+    <div class="form-group">
+        <input class="form-control" type="text" name="search" placeholder="Search ...">
+        <input class="btn btn-default" type="submit">
+    </div>
+</form>
+<br>
+<br>
+<a href="/courses/new">Create a course</a>
+<h2>Courses available:</h2>
+<% courses.forEach(function(course){ %>
+    <br>
+    <br>
+    <img src="<%= course.thumbnail %>">
+    <div class="caption">
+        <h4><%= course.title %></h4>
+    </div>
+    <p>
+        <a href="/courses/<%= course._id %>" class="btn btn-primary">View</a>
+    </p>
+<% }); %>
+
+<% include ../partials/footer %>
