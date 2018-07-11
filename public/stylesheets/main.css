@@ -1,0 +1,45 @@
+.menu {
+    padding: 20px;
+}
+.bars.large.icon {
+    color: white;
+}
+.ui.vertical.segment {
+    width: 100%;
+}
+
+body {
+    background-image: url("../images/background-1.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ui.huge.header {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+#brand-title {
+    margin-top: 10%;
+    font-size: 4em;
+}
+
+#brand-subtitle {
+    font-size: 2em;
+}
+
+#menu-logo {
+    background-image: url("../images/logo.png");
+    width: 55px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ui.right.labeled.icon.massive.button {
+    margin: 20px;
+}

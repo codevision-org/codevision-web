@@ -3,27 +3,95 @@
     <head>
         <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
         <title>Codevision</title>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css">
     </head>
     <body>
-        <h2>Authentication:</h2>
-        <% if(!currentUser){ %>
-            <p>You are not logged in.</p>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-        <% } else { %>
-            <p>You are logged in as <strong><%= currentUser.username %></strong></p>
-            <li><a href="/logout">Logout</a></li>
-        <% } %>
-
-        <br>
-        <br>
-
-        <h2>Flash messages</h2>
-        <% if(error && error.length > 0){ %>
-            <p><%= error %></p>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-            <p class="alert alert-success" role="alert"><%= success %></p>
-        <% } %>
+        <div class="ui grid">
+            <div class="computer only row">
+                <div class="ui inverted fluid vertical masthead center aligned segment">
+                    <div class="ui container">
+                        <div class="ui large secondary inverted pointing menu">
+                            <div class="item">
+                                <a class="item brand" href="/"><img id="menu-logo"></a>
+                                <img id="menu-logo" src="../public/images/logo.png">
+                            </div>
+                            <div class="item">
+                                <a class="item discord-redirect">Join</a>
+                            </div>
+                            <div class="item">
+                                <a class="item">Courses</a>
+                            </div>
+                            <div class="item">
+                                <a class="browse item">
+                                    Organization
+                                    <i class="dropdown icon"></i>
+                                </a>
+                                <div class="ui inverted fluid popup buttom left transition hidden" style="top: 553px; left: 1px; bottom: auto; right: auto; width: 960px;">
+                                    <div class="ui link list">
+                                        <a class="item">About Us</a>
+                                        <a class="item">Staff Team</a>
+                                        <a class="item">Events</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a class="item">Merch</a>
+                            </div>
+                            <div class="right item">
+                                <% if(currentUser){ %>
+                                    <div class="item">
+                                        <div class="ui primary button">My Profile</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="ui button">Logout</div>
+                                    </div>
+                                <% } else { %>
+                                    <div class="item">
+                                        <div class="ui primary button">Register</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="ui button">Login</div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="mobile tablet only row">
+                    <div class="ui fluid large inverted pointing borderless menu">
+                        <a href="" class="brand item"><strong>Codevision</strong></a>
+                        <div class="right menu open">
+                            <i class="bars large icon"></i>
+                        </div>
+                    </div>
+                    <div class="ui vertical navbar fluid borderless menu">
+                        <div class="item">
+                            <a class="item" href="/">Home</a>
+                        </div>
+                        <div class="item">
+                            <a class="item" href="/">Courses</a>
+                        </div>
+                        <div class="item">
+                            <a class="item" href="/">Organization</a>
+                        </div>
+                        <div class="item">
+                            <a class="item" href="/">Merch</a>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="item">
+                            <div class="item">
+                                <% if(currentUser){ %>
+                                    <div class="ui primary button">My Profile</div> <div class="ui button">Logout</div>
+                                <% } else { %>
+                                    <div class="ui primary button">Register</div> <div class="ui button">Login</div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="ui container">

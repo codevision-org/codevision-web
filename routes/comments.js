@@ -18,7 +18,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 // Create comment
-router("/", middleware.isLoggedIn, function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
     Course.findById(req.params.id, function(err, course){
         if(err){
             console.log(err);

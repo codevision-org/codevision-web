@@ -4,6 +4,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     flash = require("connect-flash"),
     passport = require("passport"),
+    path = require("path"),
     methodOverride = require("method-override"),
     LocalStrategy = require("passport-local");
 
@@ -26,7 +27,7 @@ mongoose.connect(process.env.DATABASEURL);
 // Express configuration
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 app.use(flash());
 app.locals.moment = require("moment");
