@@ -1,15 +1,21 @@
 <% include ../partials/header %>
 
-<form class="form-inline" action="/courses" method="get">
-    <div class="form-group">
-        <input class="form-control" type="text" name="search" placeholder="Search ...">
-        <input class="btn btn-default" type="submit">
+<div class="ui page grid">
+    <div class="row">
+        <form class="ui form large" action="/courses" method="post">
+            <div class="field">
+                <label>Search for a course ...</label>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="Search term">
+                </div>
+            </div>
+            <button class="ui primary large circular right labeled icon float button auth">
+                <i class="search icon"></i>
+                Search
+            </button>
+        </form>
     </div>
-</form>
-<br>
-<br>
-<a href="/courses/new">Create a course</a>
-<h2>Courses available:</h2>
+</div>
 <% courses.forEach(function(course){ %>
     <br>
     <br>

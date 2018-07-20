@@ -1,15 +1,44 @@
-<% include ../partials/header %>
-
-<form action="/login" method="post">
-    <div class="form-group">
-        <input class="form-control" type="text" name="username" placeholder="Username">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="password" name="password" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <input type="submit">
-    </div>
-</form>
-
-<% include ../partials/footer %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+        <title>Codevision</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css">
+    </head>
+    <body>
+        <div class="ui page grid">
+            <div class="row">
+                <form class="ui form" action="/login" method="post">
+                    <div class="ui huge header motivation-line">Login</div>
+                    <div class="ui medium header motivation-line">Ready to thrive?</div>
+                    <div class="field">
+                        <label>Username</label>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button class="ui primary circular right labeled icon float button auth">
+                            <i class="right arrow icon"></i>
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <% if(error && error.length > 0){ %>
+            <div class="ui red inverted segment flash-segment"><i class="exclamation circle icon"></i> <%= error %></div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="ui blue inverted segment flash-segment"><%= success %></div>
+        <% } %>
+    </body>
+</html>

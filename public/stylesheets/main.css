@@ -21,6 +21,16 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
     text-align: center;
+    font-size: 3em;
+}
+
+.ui.medium.header {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 #brand-title {
@@ -42,4 +52,67 @@ body {
 
 .ui.right.labeled.icon.massive.button {
     margin: 20px;
+}
+
+.ui.form .field>label {
+    color: white;
+}
+
+form {
+    margin-top: 12.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ui.labeled.icon.button-button {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.auth {
+    width: 100%;
+}
+
+.ui.red.inverted.segment.flash-segment {
+    width: 50%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ui.blue.inverted.segment.flash-segment {
+    width: 50%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ui.secondary.pointing.menu .item {
+    align-self: auto;
+}
+
+.ui.secondary.inverted.pointing.menu .item .brand {
+    padding: 0;
+}
+
+.ui.form input[type=text], .ui.form input[type=email], .ui.form input[type=password] {
+    background-color: rgba(0, 0, 0, 0);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0;
+    color: white;
+    transition: border-bottom 1s ease;
+}
+
+.ui.form input[type=text]:focus, .ui.form input[type=email]:focus, .ui.form input[type=password]:focus{
+    background-color: rgba(0, 0, 0, 0);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+    color: white;
+    transition: border-bottom 1s ease;
 }
