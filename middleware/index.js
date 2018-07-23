@@ -9,7 +9,7 @@ var middlewareObject = {
                     req.flash("error", "An error occured.");
                     req.redirect("/courses");
                 } else {
-                    if(course.author.id.equals(req.user._id)){
+                    if(course.meta.author.id.equals(req.user._id)){
                         next();
                     } else {
                         req.flash("error", "Oh crap! You do not have permission to do that.");
@@ -30,7 +30,7 @@ var middlewareObject = {
                     req.flash("error", "An error occured.");
                     req.redirect("/courses");
                 } else {
-                    if(comment.author.id.equals(req.user._id)){
+                    if(comment.meta.author.id.equals(req.user._id)){
                         next();
                     } else {
                         req.flash("error", "Oh crap! You do not have permission to do that.");

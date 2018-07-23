@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+    <div class="ui page grid">
+        <div class="row">
+            <form class="ui form" action="/courses/<%= course._id %>/?_method=PUT" method="post">
+                <div class="ui huge header motivation-line">Edit Course</div>
+                <div class="ui medium header motivation-line">Made a typo?</div>
+                <div class="field">
+                    <label>Course Title</label>
+                    <div class="form-group">
+                        <input required class="form-control" type="text" name="course[title]" placeholder="Title" value="<%= course.title %>">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Thumbnail</label>
+                    <div class="form-group">
+                        <input required class="form-control" type="text" name="course[thumbnail]" placeholder="Image URL" value="<%= course.thumbnail %>">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Description</label>
+                    <div class="form-group">
+                        <textarea required class="form-control" name="course[description]" placeholder="Description"><%= course.description %></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>You will need to make your course public later.</label>
+                </div>
+                <div class="field">
+                    <a href="/courses" class="ui circular right labeled icon float button auth">
+                        <i class="undo icon"></i>
+                        Abort Changes
+                    </a>
+                    <button id="edit-course" type="submit" class="ui primary circular right labeled icon float button auth">
+                        <i class="right arrow icon"></i>
+                        Edit Course
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <% if(error && error.length > 0){ %>
+        <div class="ui red inverted segment flash-segment"><i class="exclamation circle icon"></i> <%= error %></div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+        <div class="ui blue inverted segment flash-segment"><%= success %></div>
+    <% } %>
+
+    <% include ../partials/footer %>

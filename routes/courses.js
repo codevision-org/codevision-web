@@ -92,7 +92,7 @@ router.get("/:id/edit", middleware.checkCourseOwnership, function(req, res){
 });
 
 // Edit course
-router.put(":/id", middleware.checkCourseOwnership, function(req, res){
+router.put("/:id", middleware.checkCourseOwnership, function(req, res){
     Course.findByIdAndUpdate(req.params.id, req.body.course, function(err, course){
         if(err){
             console.log(err);

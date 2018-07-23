@@ -1,12 +1,13 @@
 <% include ../partials/header %>
 
-<div class="ui page grid">
-    <div class="row">
-        <form class="ui form large" action="/courses" method="post">
+<div class="ui page equal width center aligned grid">
+    <div id="courses-row" class="row">
+        <h2 id="courses-title" class="ui blue header">Courses</h2>
+        <form id="courses" class="ui form large" action="/courses" method="get">
             <div class="field">
-                <label>Search for a course ...</label>
+                <label>What would you like to learn today?</label>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="username" placeholder="Search term">
+                    <input class="form-control" type="text" name="search">
                 </div>
             </div>
             <button class="ui primary large circular right labeled icon float button auth">
@@ -16,16 +17,49 @@
         </form>
     </div>
 </div>
-<% courses.forEach(function(course){ %>
-    <br>
-    <br>
-    <img src="<%= course.thumbnail %>">
-    <div class="caption">
-        <h4><%= course.title %></h4>
+<div class="ui container">
+    <div class="ui divided items">
+        <div class="item">
+            <div class="extra">
+                <a href="/courses/new" class="ui right floated circular right labeled icon positive button">
+                    <i class="plus icon"></i>
+                        Create new Course
+                </a>
+            </div>
+        </div>
     </div>
-    <p>
-        <a href="/courses/<%= course._id %>" class="btn btn-primary">View</a>
-    </p>
-<% }); %>
+
+    <% courses.forEach(function(course){ %>
+        <div class="ui top attached raised blue segment">
+            <div class="ui divided items">
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= course.thumbnail %>">
+                    </div>
+                    <div class="content">
+                            <h4 class="ui header"><%= course.title %></h4>
+                        <div class="meta">
+                            <span><strong><%= course.meta.author.username %></strong>, <%= moment(course.meta.createdAt).fromNow() %></span>
+                        </div>
+                        <br>
+                        <div class="description">
+                            <p><%= course.description %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="extra">
+                        <a href="/courses/<%= course._id %>" class="ui right floated circular right labeled icon primary button">
+                            Open
+                            <i class="right arrow icon"></i>
+                        </a>
+                        <div class="ui label">Kotlin</div>
+                        <div class="ui label">Programming</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+</div>
 
 <% include ../partials/footer %>
