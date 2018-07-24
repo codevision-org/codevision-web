@@ -10,7 +10,7 @@ var express = require("express"),
 
 // Models
 var Course = require("./models/course"),
-    Page = require("./models/page"),
+    Section = require("./models/section"),
     Comment = require("./models/comment"),
     User = require("./models/user");
 
@@ -18,7 +18,7 @@ var Course = require("./models/course"),
 var indexRoutes = require("./routes/index"),
     courseRoutes = require("./routes/courses"),
     commentRoutes = require("./routes/comments"),
-    pageRoutes = require("./routes/pages");
+    sectionRoutes = require("./routes/sections");
 
 
 // Mongoose configuration
@@ -55,8 +55,8 @@ app.use(function(req, res, next){
 // Expose all routes
 app.use(indexRoutes);
 app.use("/courses", courseRoutes);
-//app.use("/course/:id/comments", commentRoutes)
-//app.use("/course/:id/pages", pagesRoutes)
+app.use("/courses/:id/comments", commentRoutes)
+//app.use("/courses/:id/sections", pagesRoutes)
 
 // Start the servers
 app.listen(process.env.PORT, function() {

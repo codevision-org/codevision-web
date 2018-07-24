@@ -30,10 +30,10 @@ var CourseSchema = mongoose.Schema({
             ref: "Comment"
         }
     ],
-    pages: [
+    sections: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Page"
+            ref: "Section"
         }
     ]
 });

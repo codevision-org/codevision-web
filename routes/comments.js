@@ -49,7 +49,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 });
 
 // Show for comments that are about to get edited
-router.get("/:comment_i/edit", middleware.checkCommentOwnership, function(req, res){
+router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
     Course.findById(req.params.id, function(err, course){
         if(err || !course){
             req.flash("error", "An error occured.");
