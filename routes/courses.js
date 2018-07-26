@@ -46,7 +46,8 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     course.meta = {
         author: {
             id: req.user._id,
-            username: req.user.username
+            username: req.user.username,
+            avatar: req.user.avatar
         }
     };
 
@@ -56,8 +57,8 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             req.flash("error", "An error occured.");
             res.redirect("/courses");
         } else {
-            req.flash("success", "Course created. Now add some posts and when you're finished, make your course public.");
-            res.redirect("/courses");
+            req.flash("success", "Course created. Now add some sections with content inside. When you're finished, make your course public.");
+            res.redirect("/courses/" + newCourse._id);
         }
     });
 });
@@ -66,7 +67,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 router.get("/:id", function(req, res){
     Course.findById(req.params.id)
     .populate("comments")
-    .populate("posts")
+    .populate("sections")
     .exec(function(err, course){
         if(err || !course){
             console.log(err);

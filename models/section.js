@@ -11,6 +11,10 @@ var SectionSchema = mongoose.Schema({
             default: Date.now
         },
         editedAt: Date,
+        isPublic: {
+            type: Boolean,
+            default: false
+        },
         author: {
             id: {
                 type: mongoose.Schema.Types.ObjectId,

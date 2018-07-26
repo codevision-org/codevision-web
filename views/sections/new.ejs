@@ -1,34 +1,41 @@
 <% include ../partials/header %>
     <div class="ui page grid">
         <div class="row">
-            <form class="ui form" action="/courses" method="post">
-                <div class="ui huge header motivation-line">Create new Course</div>
+            <form class="ui form" action="/courses/<%= course._id %>/sections" method="post">
+                <div class="ui huge header motivation-line">Create new Section</div>
                 <div class="ui medium header motivation-line">Power is gained by sharing knowledge, not hoarding it.</div>
                 <div class="field">
-                    <label>Course Title</label>
+                    <label>Section Title</label>
                     <div class="form-group">
-                        <input required class="form-control" type="text" name="course[title]" placeholder="Title">
+                        <input required class="form-control" type="text" name="section[title]" placeholder="Title">
                     </div>
                 </div>
                 <div class="field">
                     <label>Thumbnail</label>
                     <div class="form-group">
-                        <input required class="form-control" type="text" name="course[thumbnail]" placeholder="Image URL">
+                        <input required class="form-control" type="text" name="section[thumbnail]" placeholder="Image URL">
                     </div>
                 </div>
                 <div class="field">
                     <label>Description</label>
                     <div class="form-group">
-                        <textarea rows="10" required class="form-control" name="course[description]" placeholder="Description"></textarea>
+                        <textarea rows="5" required class="form-control" name="section[description]" placeholder="Description"></textarea>
                     </div>
                 </div>
                 <div class="field">
-                    <label>You will need to make your course public later.</label>
+                    <label>Content</label>
+                    <div class="form-group">
+                        <textarea rows="20" required class="form-control" name="section[content]" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>You are allowed to have html syntax in the Content field.</label>
+                    <label>You will need to make your section public later.</label>
                 </div>
                 <div class="field">
                     <button class="ui primary circular right labeled icon float button auth">
                         <i class="right arrow icon"></i>
-                        Create Course
+                        Create Section
                     </button>
                 </div>
             </form>

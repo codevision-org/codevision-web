@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+    <div class="ui page grid">
+        <div class="row">
+            <form class="ui form" action="/courses/<%= course._id %>/comments" method="post">
+                <div class="ui huge header motivation-line">Create new Comment</div>
+                <div class="ui medium header motivation-line">Review the course. Constructive criticism allowed.</div>
+                <div class="field">
+                    <label>Content</label>
+                    <div class="form-group">
+                        <textarea rows="5" required class="form-control" name="comment[content]" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Share positive vibes when commenting. Rude comments will be removed.</label>
+                </div>
+                <div class="field">
+                    <button class="ui primary circular right labeled icon float button auth">
+                        <i class="right arrow icon"></i>
+                        Create Comment
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <% if(error && error.length > 0){ %>
+        <div class="ui red inverted segment flash-segment"><i class="exclamation circle icon"></i> <%= error %></div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+        <div class="ui blue inverted segment flash-segment"><%= success %></div>
+    <% } %>
+
+<% include ../partials/footer %>

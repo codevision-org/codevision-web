@@ -56,7 +56,7 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use("/courses", courseRoutes);
 app.use("/courses/:id/comments", commentRoutes)
-//app.use("/courses/:id/sections", pagesRoutes)
+app.use("/courses/:id/sections", sectionRoutes)
 
 // Start the servers
 app.listen(process.env.PORT, function() {

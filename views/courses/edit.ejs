@@ -1,7 +1,7 @@
 <% include ../partials/header %>
     <div class="ui page grid">
         <div class="row">
-            <form class="ui form" action="/courses/<%= course._id %>/?_method=PUT" method="post">
+            <form class="ui form" action="/courses/<%= course._id %>?_method=PUT" method="post">
                 <div class="ui huge header motivation-line">Edit Course</div>
                 <div class="ui medium header motivation-line">Made a typo?</div>
                 <div class="field">
@@ -19,14 +19,14 @@
                 <div class="field">
                     <label>Description</label>
                     <div class="form-group">
-                        <textarea required class="form-control" name="course[description]" placeholder="Description"><%= course.description %></textarea>
+                        <textarea rows="10" required class="form-control" name="course[description]" placeholder="Description"><%= course.description %></textarea>
                     </div>
                 </div>
                 <div class="field">
                     <label>You will need to make your course public later.</label>
                 </div>
                 <div class="field">
-                    <a href="/courses" class="ui circular right labeled icon float button auth">
+                    <a href="/courses/<%= course._id %>" class="ui circular right labeled icon float button auth">
                         <i class="undo icon"></i>
                         Abort Changes
                     </a>

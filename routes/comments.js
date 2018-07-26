@@ -12,7 +12,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
             req.flash("error", "An error occured.");
             res.redirect("/courses");
         } else {
-            res.render("/comments/new", {course: course});
+            res.render("comments/new", {course: course});
         }
     });
 });
@@ -34,14 +34,15 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                     comment.meta = {
                         author: {
                             id: req.user._id,
-                            username: req.user.username
+                            username: req.user.username,
+                            avatar: req.user.avatar
                         }
                     }
                     comment.save();
                     course.comments.push(comment);
                     course.save();
                     req.flash("success", "Comment added.");
-                    res.redirect("/courses" + course._id);
+                    res.redirect("/courses/" + course._id);
                 }
             });
         }
