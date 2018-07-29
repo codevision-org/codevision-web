@@ -2,6 +2,7 @@ var express = require("express"),
     router = express.Router(),
     passport = require("passport"),
     User = require("../models/user"),
+    Course = require("../models/course"),
     async = require("async"),
     nodemailer = require("nodemailer"),
     crypto = require("crypto");
@@ -58,6 +59,24 @@ router.get("/logout", function(req, res){
     req.logout();
     req.flash("success", "Logged out.");
     res.redirect("/");
+});
+
+router.get("/users/:user_id", function(req, res){
+    User.findById(req.params.user_id, function(err, user){
+        if(err){
+            console.log(err);
+            req.flash("error", "An error occured.");
+            return res.redirect("/courses");
+        }
+        Course.find().where("meta.author.id").equals(user._id).exec(function(err, courses){
+            if(err){
+                console.log(err);
+                req.flash("error", "An error occured.");
+                return res.redirect("/courses");
+            }
+            res.render("users/show", {user: user, courses: courses});
+        });
+    });
 });
 
 module.exports = router;

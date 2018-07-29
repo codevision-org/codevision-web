@@ -46,19 +46,9 @@
                         
                     </form>
                 <% } %>
-                <% if(course.meta.isPublic){ %>
-                    <h4 class="ui header">This<div class="ui green label">
-                            Public course
-                        </div> was created by
-                        <%= course.meta.author.username %> <%= moment(course.meta.createdAt).fromNow() %>
-                    </h4>
-                <% } else { %>
-                    <h4 class="ui header">This<div class="ui blue label">
-                            Private course
-                        </div> was created by
-                        <%= course.meta.author.username %> <%= moment(course.meta.createdAt).fromNow() %>
-                    </h4>
-                <% } %>
+                <h4 class="ui header">Created by
+                    <a href="/users/<%= course.meta.author.id %>"><%= course.meta.author.username %></a> <%= moment(course.meta.createdAt).fromNow() %>
+                </h4>
             </div>
         </div>
     </div>
