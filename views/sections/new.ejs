@@ -1,4 +1,9 @@
 <% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/main-no-background.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
     <div class="ui page grid">
         <div class="row">
             <form class="ui form" action="/courses/<%= course._id %>/sections" method="post">
@@ -24,8 +29,7 @@
                 </div>
                 <div class="field">
                     <label>Content</label>
-                    <div class="form-group">
-                        <textarea rows="20" required class="form-control" name="section[content]" placeholder="Content"></textarea>
+                    <div class="editor-container">
                     </div>
                 </div>
                 <div class="field">
@@ -49,3 +53,21 @@
     <% } %>
 
     <% include ../partials/footer %>
+
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+var quill = new Quill('.editor-container', {
+  modules: {
+    syntax: true,
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block']
+    ]
+  },
+  placeholder: 'Compose some content...',
+  theme: 'snow'  // or 'bubble'
+});
+    </script>
