@@ -1,8 +1,5 @@
 <% include ../partials/header %>
 <link rel="stylesheet" type="text/css" href="/public/stylesheets/main-no-background.css">
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/googlecode.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
     <div class="ui page grid">
         <div class="row">
@@ -33,7 +30,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label>You are allowed to have html syntax in the Content field.</label>
+                    <label>Pro tip: Dividing your content into smaller parts using headers makes it easier for users to read and understand.</label>
                     <label>You will need to make your section public later.</label>
                 </div>
                 <div class="field">
@@ -53,21 +50,26 @@
     <% } %>
 
     <% include ../partials/footer %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
     <script>
-var quill = new Quill('.editor-container', {
-  modules: {
-    syntax: true,
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'code-block']
-    ]
-  },
-  placeholder: 'Compose some content...',
-  theme: 'snow'  // or 'bubble'
-});
+        $(document).ready(function() {
+            $('pre').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+        var quill = new Quill('.editor-container', {
+            modules: {
+                syntax: true,
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    ['link', 'image', 'code-block']
+                ]
+            },
+            placeholder: 'Your content here...',
+            theme: 'snow'  // or 'bubble'
+        });
     </script>

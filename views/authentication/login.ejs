@@ -11,19 +11,22 @@
         <div class="ui page grid">
             <div class="row">
                 <form class="ui form" action="/login" method="post">
-                    <div class="ui huge header motivation-line">Login</div>
-                    <div class="ui medium header motivation-line">Ready to thrive?</div>
+                    <div class="ui huge header motivation-line white">Login</div>
+                    <div class="ui medium header motivation-line white">Ready to thrive?</div>
                     <div class="field">
-                        <label>Username</label>
+                        <label class="white">Username</label>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="username" placeholder="Username">
+                            <input class="form-control white" type="text" name="username" placeholder="Username">
                         </div>
                     </div>
                     <div class="field">
-                        <label>Password</label>
+                        <label class="white">Password</label>
                         <div class="form-group">
-                            <input class="form-control" type="password" name="password" placeholder="Password">
+                            <input class="form-control white" type="password" name="password" placeholder="Password">
                         </div>
+                    </div>
+                    <div class="field">
+                        <label class="white">Don't have an account yet? <a href="/register">Register</a></label>
                     </div>
                     <div class="field">
                         <button class="ui primary circular right labeled icon float button auth">
