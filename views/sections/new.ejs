@@ -25,6 +25,11 @@
                     </div>
                 </div>
                 <div class="field">
+                    <div class="form-group">
+                        <input id="hidden" required class="form-control" type="hidden" name="section[content]" placeholder="Content">
+                    </div>
+                </div>
+                <div class="field">
                     <label>Content</label>
                     <div class="editor-container">
                     </div>
@@ -33,13 +38,13 @@
                     <label>Pro tip: Dividing your content into smaller parts using headers makes it easier for users to read and understand.</label>
                     <label>You will need to make your section public later.</label>
                 </div>
-                <div class="field">
-                    <button class="ui primary circular right labeled icon float button auth">
-                        <i class="right arrow icon"></i>
-                        Create Section
-                    </button>
-                </div>
             </form>
+            <div class="field">
+                <button class="ui primary circular right labeled icon float button auth">
+                    <i class="right arrow icon"></i>
+                    Create Section
+                </button>
+            </div>
         </div>
     </div>
     <% if(error && error.length > 0){ %>
@@ -71,5 +76,12 @@
             },
             placeholder: 'Your content here...',
             theme: 'snow'  // or 'bubble'
+        });
+        $(document).ready(function(){
+            $(".ui.button").on("click", function(e){
+                e.preventDefault();
+                $("#hidden").val(quill.container.firstChild.innerHTML);
+                $("form").submit();
+            });
         });
     </script>

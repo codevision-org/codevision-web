@@ -211,14 +211,14 @@ form#delete-comment {
     margin-bottom: 0;
 }
 
-.ql-snow *.ql-editor{
+.ql-snow *.ql-editor {
     border: 1px solid white;
     height: 300px;
     width: 100%;
     transition: border 1s ease;
 }
 
-.ql-snow *.ql-editor:focus{
+.ql-snow *.ql-editor:focus {
     border: 1px solid #0E6EB8;
     height: 300px;
     width: 100%;
