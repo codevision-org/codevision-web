@@ -1,5 +1,6 @@
 <% include ../partials/header %>
 <link rel="stylesheet" type="text/css" href="/public/stylesheets/main-no-background.css">
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
     <div class="ui page grid">
         <div class="row">
             <form class="ui form" action="/courses/<%= course_id %>/sections/<%= section._id %>?_method=PUT" method="post">
@@ -24,22 +25,27 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label>Content</label>
                     <div class="form-group">
-                        <textarea rows="20" required class="form-control" name="section[content]" placeholder="Content"><%= section.content %></textarea>
+                        <input id="hidden" required class="form-control" type="hidden" name="section[content]" placeholder="Content">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Content</label>
+                    <div class="editor-container">
+                        <%- section.content %>
                     </div>
                 </div>
                 <div class="field">
                     <label>Pro tip: Dividing your content into smaller parts using headers makes it easier for users to read and understand.</label>
                     <label>You will need to make your section public later.</label>
                 </div>
-                <div class="field">
-                    <button class="ui primary circular right labeled icon float button auth">
-                        <i class="right arrow icon"></i>
-                        Create Section
-                    </button>
-                </div>
             </form>
+            <div class="field">
+                <button class="ui primary circular right labeled icon float button auth">
+                    <i class="right arrow icon"></i>
+                    Edit Section
+                </button>
+            </div>
         </div>
     </div>
     <% if(error && error.length > 0){ %>
@@ -50,3 +56,33 @@
     <% } %>
 
     <% include ../partials/footer %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+        var quill = new Quill('.editor-container', {
+            modules: {
+                syntax: true,
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    ['link', 'image', 'code-block']
+                ]
+            },
+            placeholder: 'Your content here...',
+            theme: 'snow'  // or 'bubble'
+        });
+        $(document).ready(function(){
+            $(".ui.button").on("click", function(e){
+                e.preventDefault();
+                $("#hidden").val(quill.container.firstChild.innerHTML);
+                $("form").submit();
+            });
+        });
+    </script>

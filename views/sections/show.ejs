@@ -1,5 +1,6 @@
 <% include ../partials/header %>
 <link rel="stylesheet" type="text/css" href="/public/stylesheets/main-no-background.css">
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 
 <div class="ui page equal width center aligned grid">
     <div class="row thumbnail-row">
@@ -62,9 +63,33 @@
             </div>
         </div>
         <div class="item">
-            <h4 class="ui header section-content"><%= section.content %></h4>
+            <div class="field">
+                <div class="editor-container">
+                    <%- section.content %>
+                </div>
+            </div>
         </div>
         <br>
     </div>
 </div>
 <% include ../partials/footer %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs2015.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+<script>
+    $(document).ready(function() {
+        $('pre').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+
+    var quill = new Quill('.editor-container', {
+        modules: {
+            syntax: true,
+            toolbar: [
+            ]
+        },
+        theme: 'snow'  // or 'bubble'
+    });
+    quill.enable(false);
+</script>
