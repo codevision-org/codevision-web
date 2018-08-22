@@ -248,6 +248,26 @@ form#delete-comment {
     border: 1px solid white !important;
 }
 
+img {
+    width: 500px;
+}
+
+#profile  {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #0E6EB8;
+    border-radius: 100%;
+}
+
+#share_link {
+    position: absolute;
+    left: -9999px;
+}
+
+
 /*
     QuillJS
 */
