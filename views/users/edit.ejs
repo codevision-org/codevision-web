@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/main-no-background.css">
+        <div class="ui page grid">
+            <div class="row">
+                <form class="ui form" action="/users/<%= user._id %>?_method=PUT" method="post">
+                    <div class="ui huge header motivation-line">Update your profile</div>
+                    <div class="ui medium header motivation-line">A small tweak there and a small tweak here</div>
+                    <div class="field">
+                        <label>Avatar</label>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="user[avatar]" placeholder="Avatar Image URL" value="<%= user.avatar %>">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Biography</label>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="user[biography]" placeholder="Biography" value="<%= user.biography %>">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="white">Name changing disabled. If you need to change your name, contact Pim.</label>
+                    </div>
+                    <div class="field">
+                        <button class="ui primary circular right labeled icon float button auth">
+                            <i class="right arrow icon"></i>
+                            Edit Profile Details
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <% if(error && error.length > 0){ %>
+            <div class="ui red inverted segment flash-segment"><i class="exclamation circle icon"></i> <%= error %></div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="ui blue inverted segment flash-segment"><%= success %></div>
+        <% } %>
+<% include ../partials/footer %>

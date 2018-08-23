@@ -16,38 +16,51 @@
                     <div class="field">
                         <label class="white">Username</label>
                         <div class="form-group">
-                            <input class="form-control white" type="text" name="username" placeholder="Username">
+                            <input class="form-control white" required type="text" name="username" placeholder="Username">
                         </div>
                     </div>
                     <div class="field">
                         <label class="white">Email</label>
                         <div class="form-group">
-                            <input class="form-control white" type="email" name="email" placeholder="Email">
+                            <input class="form-control white" required type="email" name="email" placeholder="Email">
                         </div>
                     </div>
                     <div class="field">
                         <label class="white">Avatar</label>
                         <div class="form-group">
-                            <input class="form-control white" type="text" name="avatar" placeholder="Avatar Image URL">
+                            <input class="form-control white" required type="text" name="avatar" placeholder="Avatar Image URL">
                         </div>
                     </div>
                     <div class="field">
                         <label class="white">Biography</label>
                         <div class="form-group">
-                            <input class="form-control white" type="text" name="biography" placeholder="Biography">
+                            <input class="form-control white" required type="text" name="biography" placeholder="Biography">
                         </div>
                     </div>
                     <div class="field">
                         <label class="white">Password</label>
                         <div class="form-group">
-                            <input class="form-control white" type="password" name="password" placeholder="Password">
+                            <input class="form-control white" required type="password" name="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="field">
+                        <label class="white">Beta Access Code</label>
+                        <div class="form-group">
+                            <input class="form-control white" required type="password" name="access_code" placeholder="Beta Access Code">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="white">The registration restriction is temporary.</label>
                         <label class="white">Already have an account? Try <a href="/login">logging in</a> instead.</label>
                     </div>
                     <div class="field">
-                        <button class="ui primary circular right labeled icon float button auth">
+                        <a href="/" class="ui circular right labeled icon float button auth">
+                            <i class="right arrow icon"></i>
+                            Go to Homepage
+                        </a>
+                    </div>
+                    <div class="field">
+                        <button type="submit" class="ui primary circular right labeled icon float button auth">
                             <i class="right arrow icon"></i>
                             Create Account
                         </button>

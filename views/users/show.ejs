@@ -19,7 +19,7 @@
         <div class="item">
             <div class="extra">
                 <% if(currentUser && user._id.equals(currentUser._id)){ %>
-                    <a href="#" class="ui right floated circular right labeled icon button">
+                    <a href="/users/<%= user._id %>/edit" class="ui right floated circular right labeled icon button">
                         <i class="edit outline icon"></i>
                             Edit Profile
                     </a>

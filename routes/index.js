@@ -3,6 +3,7 @@ var express = require("express"),
     passport = require("passport"),
     User = require("../models/user"),
     Course = require("../models/course"),
+    middleware = require("../middleware"),
     async = require("async"),
     nodemailer = require("nodemailer"),
     crypto = require("crypto");
@@ -18,6 +19,11 @@ router.get("/register", function(req, res){
 });
 
 router.post("/register", function(req, res){
+
+    if(req.body.access_code != "7236076571551751872545612"){
+        req.flash("error", "Invalid access code. You can still view most of the pages without being logged in.");
+        return res.redirect("/register");
+    }
 
     var newUser = new User({
         username: req.body.username,
@@ -75,6 +81,37 @@ router.get("/users/:user_id", function(req, res){
                 return res.redirect("/courses");
             }
             res.render("users/show", {user: user, courses: courses});
+        });
+    });
+});
+
+// Edit profile form
+router.get("/users/:user_id/edit", middleware.checkUserOwnership, function(req, res){
+    User.findById(req.params.user_id, function(err, user){
+        if(err || !user){
+            req.flash("error", "An error occured.");
+            return res.redirect("/courses");
+        }
+        res.render("users/edit", {user: user})
+    });
+});
+
+// Edit profile
+router.put("/users/:user_id", middleware.checkUserOwnership, function(req, res){
+    User.findById(req.params.user_id, function(err, user){
+        if(err || !user){
+            req.flash("error", "An error occured.");
+            return res.redirect("/courses");
+        }
+        User.findByIdAndUpdate(req.params.user_id, req.body.user, function(err, section){
+            if(err){
+                console.log(err);
+                req.flash("error", "An error occured.");
+                res.redirect("/courses");
+            } else {
+                req.flash("success", "Updated profile details.")
+                res.redirect("/users/" + req.params.user_id);
+            }
         });
     });
 });

@@ -267,6 +267,24 @@ img {
     left: -9999px;
 }
 
+#error_grid {
+    margin-top: 20px;
+    display: block;
+}
+
+#error_code {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-weight: 100;
+    font-size: 7em;
+}
+
+#cat {
+    margin: 0 auto;
+    float: left;
+}
+
 
 /*
     QuillJS

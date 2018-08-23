@@ -55,8 +55,27 @@ app.use(function(req, res, next){
 // Expose all routes
 app.use(indexRoutes);
 app.use("/courses", courseRoutes);
-app.use("/courses/:id/comments", commentRoutes)
-app.use("/courses/:id/sections", sectionRoutes)
+app.use("/courses/:id/comments", commentRoutes);
+app.use("/courses/:id/sections", sectionRoutes);
+
+app.get("*", function(req, res, next){
+    res.status(404);
+
+      // respond with html page
+    if (req.accepts('html')) {
+        res.render('404');
+        return;
+    }
+
+    // respond with json
+    if (req.accepts('json')) {
+        res.send({ error: 'Not found' });
+        return;
+    }
+
+    // default to plain-text. send()
+    res.type('txt').send('Not found');
+});
 
 // Start the servers
 app.listen(process.env.PORT, function() {
