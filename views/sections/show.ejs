@@ -25,15 +25,15 @@
                     </a>
                 <% if(currentUser && section.meta.author.id.equals(currentUser._id)){ %>
                     <% if(course.meta.isPublic){ %>
-                        <a href="/courses/<%= course._id %>" class="ui right floated circular right labeled icon button">
+<!--                         <a href="/courses/<%= course._id %>" class="ui right floated circular right labeled icon button">
                             <i class="eye slash outline icon"></i>
                                 Make Private
-                        </a>
+                        </a> -->
                     <% } else { %>
-                        <a href="/courses/<%= course._id %>" class="ui right floated circular right labeled icon primary button">
+<!--                         <a href="/courses/<%= course._id %>" class="ui right floated circular right labeled icon primary button">
                             <i class="eye slash outline icon"></i>
                                 Make Public
-                        </a>
+                        </a> -->
                     <% } %>
                     <a href="/courses/<%= course._id %>/sections/<%= section._id %>/edit" class="ui right floated circular right labeled icon button">
                         <i class="edit outline icon"></i>
@@ -48,17 +48,17 @@
                     </form>
                 <% } %>
                 <% if(section.meta.isPublic){ %>
-                    <h4 class="ui header">This<div class="ui green label">
+                    <!-- <h4 class="ui header">This<div class="ui green label">
                             Public section
                         </div> was created by
                         <%= section.meta.author.username %> <%= moment(section.meta.createdAt).fromNow() %>
-                    </h4>
+                    </h4> -->
                 <% } else { %>
-                    <h4 class="ui header">This<div class="ui blue label">
+                    <!-- <h4 class="ui header">This<div class="ui blue label">
                             Private section
                         </div> was created by
                         <%= section.meta.author.username %> <%= moment(section.meta.createdAt).fromNow() %>
-                    </h4>
+                    </h4> -->
                 <% } %>
             </div>
         </div>

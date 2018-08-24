@@ -74,6 +74,10 @@ router.get("/users/:user_id", function(req, res){
             req.flash("error", "An error occured.");
             return res.redirect("/courses");
         }
+        if(!user){
+            req.flash("error", "An error occured.");
+            return res.redirect("/courses");
+        }
         Course.find().where("meta.author.id").equals(user._id).exec(function(err, courses){
             if(err){
                 console.log(err);

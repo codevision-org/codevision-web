@@ -98,6 +98,7 @@ form {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
 }
 
 .ui.blue.inverted.segment.flash-segment {
@@ -105,6 +106,7 @@ form {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
 }
 
 .ui.secondary.pointing.menu .item {
