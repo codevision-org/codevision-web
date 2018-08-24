@@ -181,6 +181,19 @@ form {
     margin-top: 10px;
 }
 
+#edit-section.ui[class*="right labeled"].icon.button {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#abort-edit-section.ui[class*="right labeled"].icon.button {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+
 .ui.items>.item>.content>.header {
     margin-top: 40px;
     margin-bottom: 40px;
