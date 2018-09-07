@@ -1,21 +1,24 @@
 <% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="../public/stylesheets/main-no-background.css">
 
-<div class="ui page equal width center aligned grid">
-    <div id="courses-row" class="row">
-        <h2 id="courses-title" class="ui blue header">Courses</h2>
-        <form id="courses" class="ui form large" action="/courses" method="get">
-            <div class="field">
-                <label class="white">What would you like to learn today?</label>
-                <div class="form-group">
-                    <input class="form-control white" type="text" name="search" placeholder="Search term">
+<div id="courses-grid" class="ui page equal width center aligned grid">
+        <div class="row">
+            <h2 id="courses-title" class="ui blue header">Courses</h2>
+        </div>
+        <div class="row">
+            <form id="courses" class="ui form large" action="/courses" method="get">
+                <div class="field">
+                    <label class="white">What would you like to learn today?</label>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="search" placeholder="Search term">
+                    </div>
                 </div>
-            </div>
-            <button class="ui primary large circular right labeled icon float button auth">
-                <i class="search icon"></i>
-                Search
-            </button>
-        </form>
-    </div>
+                <button class="ui primary large circular right labeled icon float button auth">
+                    <i class="search icon"></i>
+                    Find Course
+                </button>
+            </form>
+        </div>
 </div>
 <div class="ui container">
     <div class="ui divided items">

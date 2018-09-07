@@ -78,15 +78,17 @@ form {
 }
 
 #courses.form {
-    margin-top: 0;
-    margin-left: 10%;
-    margin-right: 0;
-    padding-right: 0;
+    margin: 0;
 }
 
 .ui.labeled.icon.button-button {
     margin: 0 auto;
     text-align: center;
+}
+
+.ui[class*="right labeled"].icon.button.submit-section {
+    width: 35%;
+    margin: 0 auto;
 }
 
 .auth {
@@ -169,10 +171,26 @@ form {
 
 #courses-title {
     margin-top: 0.5em;
-    margin-right: 10%;
-    font-size: 50px;
-    letter-spacing: 3px;
+    font-family: 'Roboto';
+    font-size: 75px;
+    letter-spacing: 4px;
     font-weight: 100;
+}
+
+.ui.blue.header.about-us-subtitle {
+    margin-top: 2em;
+    font-family: 'Roboto';
+    font-size: 40px;
+    letter-spacing: 4px;
+    font-weight: 100;
+}
+
+.ui.blue.header.about-us-text {
+    font-family: 'Roboto';
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    font-weight: 200;
+    color: black !important;
 }
 
 .ui[class*="top attached"].segment {
@@ -246,6 +264,10 @@ form#delete-comment {
 
 .ui.grid>.row#courses-row {
     margin-top: 50px;
+}
+
+#courses-grid {
+    margin-bottom: 50px;
 }
 
 .item .field .ql-toolbar.ql-snow {

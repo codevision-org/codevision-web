@@ -13,6 +13,10 @@ router.get("/", function(req, res){
     res.render("landing");
 });
 
+router.get("/about-us", function(req, res){
+    res.render("about-us");
+})
+
 // Show register page
 router.get("/register", function(req, res){
     res.render("authentication/register");
