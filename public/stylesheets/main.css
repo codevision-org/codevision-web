@@ -91,6 +91,10 @@ form {
     margin: 0 auto;
 }
 
+.ui.labeled.icon.button.leave-comment {
+    margin-bottom: 20px;
+}
+
 .auth {
     width: 100%;
 }
@@ -147,22 +151,6 @@ form {
 
 .black-bottom {
     border-bottom: 2px solid rgba(0, 0, 0, 0);
-}
-
-.ui.form textarea {
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 20px;
-    height: auto;
-    transition: border 1s ease;
-}
-
-.ui.form textarea:focus {
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #0E6EB8;
-    border-radius: 20px;
-    height: auto;
-    transition: border 1s ease;
 }
 
 .ui.segment[class*="top attached"]:first-child {

@@ -9,12 +9,8 @@ var CommentSchema = mongoose.Schema({
         },
         editedAt: Date,
         author: {
-            id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User"
-            },
-            username: String,
-            avatar: String
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         }
     },
 });

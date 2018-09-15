@@ -25,18 +25,20 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             req.flash("error", "An error occured.");
             res.redirect("/courses");
         } else {
-            Comment.create(req.body.comment, function(err, comment){
+
+            var options = {
+                upsert: true,
+                setDefaultsOnInsert: true
+            };
+
+            Comment.create(req.body.comment, options, function(err, comment){
                 if(err){
                     console.log(err);
                     req.flash("error", "An error occured.");
                     res.redirect("/courses");
                 } else {
                     comment.meta = {
-                        author: {
-                            id: req.user._id,
-                            username: req.user.username,
-                            avatar: req.user.avatar
-                        }
+                        author: req.user._id,
                     }
                     comment.save();
                     course.comments.push(comment);

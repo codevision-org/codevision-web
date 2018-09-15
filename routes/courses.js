@@ -1,6 +1,7 @@
 var express = require("express"),
     router = express.Router();
     Course = require("../models/course"),
+    User = require("../models/user"),
     middleware = require("../middleware");
 
 // Show all courses
@@ -66,8 +67,11 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 // Show more specific information about a certain course
 router.get("/:id", function(req, res){
     Course.findById(req.params.id)
-    .populate("comments")
     .populate("sections")
+    .populate({
+        path: "comments",
+        populate: {path: "meta.author"}
+    })
     .exec(function(err, course){
         if(err || !course){
             console.log(err);

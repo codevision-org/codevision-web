@@ -93,34 +93,50 @@
         <div class="ui divided items">
             <div class="item">
                 <div class="content">
-                <a href="/courses/<%= course._id %>/comments/new" class="ui right floated circular right labeled icon positive button">
-                    <i class="plus icon"></i>
-                        Create new Comment
-                </a>
             </div>
         </div>
     </div>
-    <% course.comments.forEach(function(comment){ %>
+
+
     <div class="ui large comments">
-        <div class="comment">
-            <a class="avatar">
-                <img src="<%= comment.meta.author.avatar %>">
-            </a>
-            <div class="content">
-                <a class="author"><%= comment.meta.author.username %></a>
-                <div class="text"><%= comment.content %></div>
-                <% if(currentUser && comment.meta.author.id.equals(currentUser._id)){ %>
-                    <div class="actions">
-                        <a href="/courses/<%= course._id %>/comments/<%= comment._id %>/edit" class="ui mini button">Edit</a>
-                        <form id="delete-comment" action="/courses/<%= course._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
-                            <button class="ui mini red button">Delete</button>
-                        </form>
+        <h3 class="ui dividing header">Comments</h3>
+        <% course.comments.forEach(function(comment){ %>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="<%= comment.meta.author.avatar %>">
+                </a>
+                <div class="content">
+                    <a class="author"><%= comment.meta.author.username %></a>
+                    <div class="metadata">
+                        <span class="date"><%= moment(comment.meta.createdAt).fromNow() %></span>
                     </div>
-                <% } %>
+                    <div class="text">
+                        <%= comment.content %>
+                    </div>
+                    <div class="actions">
+                        <% if(currentUser && comment.meta.author.id == currentUser._id){ %>
+                            <div class="actions">
+                                <a href="/courses/<%= course._id %>/comments/<%= comment._id %>/edit" class="ui mini button">Edit</a>
+                                <form id="delete-comment" action="/courses/<%= course._id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+                                    <button class="ui mini red button">Delete</button>
+                                </form>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
             </div>
-        </div>
+        <% }); %>
     </div>
-    <% }); %>
+    
+    <form class="ui reply form">
+        <div class="field">
+            <textarea></textarea>
+        </div>
+        <a href="/courses/<%= course._id %>/comments/new" class="ui right floated positive circular right labeled leave-comment icon button">
+            <i class="plus icon"></i> Add Comment
+        </a>
+    </form>
+    <br>
     <br>
 </div>
 <% include ../partials/footer %>
