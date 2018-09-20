@@ -27,11 +27,7 @@ router.post("/", middleware.checkCourseOwnership, function(req, res){
         } else {
             var section = req.body.section;
             section.meta = {
-                author: {
-                    id: req.user._id,
-                    username: req.user.username,
-                    avatar: req.user.avatar
-                }
+                author: req.user._id
             }
             Section.create(section, function(err, section){
                 if(err){

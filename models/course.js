@@ -17,10 +17,8 @@ var CourseSchema = mongoose.Schema({
             default: false
         },
         author: {
-            id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User"
-            }
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         }
     },
     comments: [

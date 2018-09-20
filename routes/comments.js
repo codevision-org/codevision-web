@@ -5,17 +5,17 @@ var express = require("express"),
     middleware = require("../middleware");
 
 // Show form for comments that are about to be created
-router.get("/new", middleware.isLoggedIn, function(req, res){
-    Course.findById(req.params.id, function(err, course){
-        if(err){
-            console.log(err);
-            req.flash("error", "An error occured.");
-            res.redirect("/courses");
-        } else {
-            res.render("comments/new", {course: course});
-        }
-    });
-});
+// router.get("/new", middleware.isLoggedIn, function(req, res){
+//     Course.findById(req.params.id, function(err, course){
+//         if(err){
+//             console.log(err);
+//             req.flash("error", "An error occured.");
+//             res.redirect("/courses");
+//         } else {
+//             res.render("comments/new", {course: course});
+//         }
+//     });
+// });
 
 // Create comment
 router.post("/", middleware.isLoggedIn, function(req, res){
@@ -26,12 +26,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             res.redirect("/courses");
         } else {
 
-            var options = {
-                upsert: true,
-                setDefaultsOnInsert: true
-            };
-
-            Comment.create(req.body.comment, options, function(err, comment){
+            Comment.create(req.body.comment, function(err, comment){
                 if(err){
                     console.log(err);
                     req.flash("error", "An error occured.");
@@ -39,6 +34,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                 } else {
                     comment.meta = {
                         author: req.user._id,
+                        createdAt: Date.now()
                     }
                     comment.save();
                     course.comments.push(comment);

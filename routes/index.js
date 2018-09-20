@@ -24,11 +24,6 @@ router.get("/register", function(req, res){
 
 router.post("/register", function(req, res){
 
-    if(req.body.access_code != "7236076571551751872545612"){
-        req.flash("error", "Invalid access code. You can still view most of the pages without being logged in.");
-        return res.redirect("/register");
-    }
-
     var newUser = new User({
         username: req.body.username,
         email: req.body.email,

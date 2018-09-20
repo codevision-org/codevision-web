@@ -45,11 +45,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
     var course = req.body.course;
     course.meta = {
-        author: {
-            id: req.user._id,
-            username: req.user.username,
-            avatar: req.user.avatar
-        }
+        author: req.user._id
     };
 
     Course.create(course, function(err, newCourse){
@@ -67,7 +63,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 // Show more specific information about a certain course
 router.get("/:id", function(req, res){
     Course.findById(req.params.id)
-    .populate("sections")
+    .populate({
+        path: "sections",
+        populate: {path: "meta.author"}
+    })
     .populate({
         path: "comments",
         populate: {path: "meta.author"}
