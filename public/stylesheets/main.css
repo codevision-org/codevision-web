@@ -325,7 +325,9 @@ img {
     float: left;
 }
 
-
+.ui.button.dropdown .menu {
+    margin-top: 5%;
+}
 
 
 /*

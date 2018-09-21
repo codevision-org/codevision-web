@@ -46,33 +46,42 @@
                                     <a href="/merch">Merch</a>
                                 </h4>
                             </div>
-                            <div class="item">
+                            <div class="right menu">
                                 <% if(currentUser){ %>
                                     <div class="item">
-                                        <a href="/users/<%= currentUser._id %>" class="ui primary circular right labeled icon button">
-                                            <i class="icon user circle outline"></i>
-                                            My Profile
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="/logout" class="ui circular right labeled icon button">
-                                            <i class="right arrow icon"></i>
-                                            Logout
-                                        </a>
-                                    </div>
+                                            <div class="ui dropdown primary right labeled icon button">
+                                                <i class="dropdown icon"></i>
+                                                Logged in as <%= currentUser.username %>
+                                                <div class="menu">
+                                                    <div class="header">Account</div>
+                                                    <div class="item">Visit Profile</div>
+                                                    <div class="item">Edit Profile</div>
+                                                    <div class="divider"></div>
+                                                    <div class="header">Exit</div>
+                                                    <a class="ui item inverted" href="/logout">
+                                                        Logout
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <% } else { %>
                                     <div class="item">
-                                        <a href="/register" class="ui primary circular right labeled icon button">
-                                            <i class="right arrow icon"></i>
-                                            Register
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="/login" class="ui circular right labeled icon button">
-                                            <i class="right arrow icon"></i>
-                                            Login
-                                        </a>
-                                    </div>
+                                            <div class="ui dropdown primary right labeled icon button">
+                                                <i class="dropdown icon"></i>
+                                                Not logged in
+                                                <div class="menu">
+                                                    <div class="header">New user</div>
+                                                    <a class="ui item inverted" href="/register">
+                                                        Register
+                                                    </a>
+                                                    <div class="divider"></div>
+                                                    <div class="header">Existing user</div>
+                                                    <a class="ui item inverted" href="/login">
+                                                        Login
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <% } %>
                             </div>
                         </div>

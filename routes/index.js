@@ -15,7 +15,11 @@ router.get("/", function(req, res){
 
 router.get("/about-us", function(req, res){
     res.render("about-us");
-})
+});
+
+router.get("/events", function(req, res){
+    res.render("events");
+});
 
 // Show register page
 router.get("/register", function(req, res){

@@ -50,7 +50,7 @@
                     </form>
                 <% } %>
                 <h4 class="ui header">Created by
-                    <a href="/users/<%= course.meta.author %>"><%= course.meta.author.username %></a> <%= moment(course.meta.createdAt).fromNow() %>
+                    <a href="/users/<%= course.meta.author._id %>"><%= course.meta.author.username %></a> <%= moment(course.meta.createdAt).fromNow() %>
                 </h4>
             </div>
         </div>

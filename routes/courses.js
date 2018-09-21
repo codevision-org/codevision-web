@@ -8,7 +8,9 @@ var express = require("express"),
 router.get("/", function(req, res){
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        Course.find({title: regex}, function(err, courses){
+        Course.find({title: regex})
+        .populate("meta.author")
+        .exec(function(err, courses){
             if(err){
                 console.log(err);
                 req.flash("error", "An error occured.");
@@ -18,13 +20,14 @@ router.get("/", function(req, res){
                     req.flash("error", "No results found. Maybe try another search term?");
                     res.redirect("/courses");
                 } else {
-                    req.flash("success", "Found " + courses.length + " courses matching your search.");
                     res.render("courses/index", {courses: courses});
                 }
             }
         });
     } else {
-        Course.find({}, function(err, courses){
+        Course.find({})
+        .populate("meta.author")
+        .exec(function(err, courses){
             if(err){
                 console.log(err);
                 req.flash("error", "An error occured.");
@@ -71,6 +74,7 @@ router.get("/:id", function(req, res){
         path: "comments",
         populate: {path: "meta.author"}
     })
+    .populate("meta.author")
     .exec(function(err, course){
         if(err || !course){
             console.log(err);
