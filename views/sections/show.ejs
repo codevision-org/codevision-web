@@ -24,7 +24,7 @@
                         <i class="share square outline icon"></i>
                             Leave Section
                     </a>
-                <% if(currentUser && section.meta.author.id.equals(currentUser._id)){ %>
+                <% if(currentUser && section.meta.author._id.equals(currentUser._id)){ %>
                     <% if(course.meta.isPublic){ %>
 <!--                         <a href="/courses/<%= course._id %>" class="ui right floated circular right labeled icon button">
                             <i class="eye slash outline icon"></i>
