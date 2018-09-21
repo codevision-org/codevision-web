@@ -54,8 +54,12 @@
                                                 Logged in as <%= currentUser.username %>
                                                 <div class="menu">
                                                     <div class="header">Account</div>
-                                                    <div class="item">Visit Profile</div>
-                                                    <div class="item">Edit Profile</div>
+                                                    <a class="ui item inverted" href="/users/<%= currentUser._id %>">
+                                                        Visit Profile
+                                                    </a>
+                                                    <a class="ui item inverted" href="/users/<%= currentUser._id %>/edit">
+                                                        Edit Profile
+                                                    </a>
                                                     <div class="divider"></div>
                                                     <div class="header">Exit</div>
                                                     <a class="ui item inverted" href="/logout">
