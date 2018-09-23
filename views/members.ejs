@@ -8,29 +8,30 @@
         <div class="item">
             <% users.forEach(function(user){ %>
                 <div class="ui top attached raised blue small segment">
-                        <div class="ui divided items">
-                            <div class="item">
-                                <div class="image">
-                                    <img id="users-img" class="ui small image" src="<%= user.avatar %>">
-                                </div>
-                                <div class="content">
-                                    <h4 class="ui header"><%= user.username %>
-                                        <% if(user.roles.indexOf(5) > -1){ %>
-                                            <i id="medium-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
-                                        <% } %>
-                                    </h4>
-                                </div>
+                    <div class="ui divided items">
+                        <div class="item">
+                            <div class="image">
+                                <img id="users-img" class="ui small image" src="<%= user.avatar %>">
+                            </div>
+                            <div class="content">
+                                <h4 class="ui header"><%= user.username %>
+                                    <% if(user.roles.indexOf(5) > -1){ %>
+                                        <i id="medium-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                                    <% } %>
+                                </h4>
+                            </div>
                         </div>
                         <div class="item">
-                                <div class="extra">
-                                    <a href="/users/<%= user._id %>" class="ui right floated circular right labeled icon button">
-                                        Visit Profile
-                                        <i class="right arrow icon"></i>
-                                    </a>
-                                    <div class="ui label">0 followers</div>
-                                </div>
+                            <div class="extra">
+                                <a href="/users/<%= user._id %>" class="ui right floated circular right labeled icon button">
+                                    Visit Profile
+                                    <i class="right arrow icon"></i>
+                                </a>
+                                <div class="ui label">0 followers</div>
                             </div>
+                        </div>
                     </div>
+                </div>
             <% }); %>
         </div>
     </div>
