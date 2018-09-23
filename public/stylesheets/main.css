@@ -342,6 +342,27 @@ img.ui.image#users-img {
     max-width: 100px;
 }
 
+.ui.header>.icon#medium-role-icon {
+    font-size: 0.5em;
+    margin-bottom: 35px;
+}
+
+#large-role-icon {
+    font-size: 0.5em;
+    margin-bottom: 45px;
+}
+
+#small-role-icon {
+    font-size: 0.8em;
+}
+
+#small-role-icon-inline {
+    display: inline-block;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+
 
 /*
     QuillJS

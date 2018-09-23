@@ -17,8 +17,7 @@ var UserSchema = new mongoose.Schema({
     biography: String,
     roles: [
         {
-            type: Number,
-            default: 0
+            type: Number
         }
     ],
     resetPasswordToken: String,

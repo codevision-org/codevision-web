@@ -14,7 +14,11 @@
                                     <img id="users-img" class="ui small image" src="<%= user.avatar %>">
                                 </div>
                                 <div class="content">
-                                    <h4 class="ui header"><%= user.username %></h4>
+                                    <h4 class="ui header"><%= user.username %>
+                                        <% if(user.roles.indexOf(5) > -1){ %>
+                                            <i id="medium-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                                        <% } %>
+                                    </h4>
                                 </div>
                         </div>
                         <div class="item">

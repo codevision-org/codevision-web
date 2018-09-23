@@ -50,12 +50,15 @@
                     </form>
                 <% } %>
                 <h4 class="ui header">Created by
-                    <a href="/users/<%= course.meta.author._id %>"><%= course.meta.author.username %></a> <%= moment(course.meta.createdAt).fromNow() %>
+                    <a href="/users/<%= course.meta.author._id %>"><%= course.meta.author.username %></a>
+                    <% if(course.meta.author.roles.indexOf(5) > -1){ %>
+                        <i id="small-role-icon-inline" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                    <% } %> <%= moment(course.meta.createdAt).fromNow() %>
                 </h4>
             </div>
         </div>
     </div>
-    <h3 class="ui dividing header">Sections</h3>
+    <h3 class="ui dividing header">Sections (<%= course.sections.length %>)</h3>
     <% course.sections.forEach(function(section){ %>
         <div class="ui top attached raised blue segment">
             <div class="ui divided items">
@@ -66,7 +69,10 @@
                     <div class="content">
                         <h4 class="ui header section"><%= section.title %></h4>
                         <div class="meta">
-                            <span><strong><%= section.meta.author.username %></strong>, <%= moment(section.meta.createdAt).fromNow() %></span>
+                            <span><strong><%= section.meta.author.username %></strong>
+                                <% if(course.meta.author.roles.indexOf(5) > -1){ %>
+                                    <i id="small-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                                <% } %>, <%= moment(section.meta.createdAt).fromNow() %></span>
                         </div>
                         <br>
                         <div class="description">
@@ -103,14 +109,18 @@
 
 
     <div class="ui large comments">
-        <h3 class="ui dividing header">Comments</h3>
+        <h3 class="ui dividing header">Comments (<%=course.comments.length %>)</h3>
         <% course.comments.forEach(function(comment){ %>
             <div class="comment">
                 <a class="avatar">
                     <img src="<%= comment.meta.author.avatar %>">
                 </a>
                 <div class="content">
-                    <a class="author" href="/users/<%= comment.meta.author._id %>"><%= comment.meta.author.username %></a>
+                    <a class="author" href="/users/<%= comment.meta.author._id %>"><%= comment.meta.author.username %>
+                        <% if(course.meta.author.roles.indexOf(5) > -1){ %>
+                            <i id="small-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                        <% } %>
+                    </a>
                     <div class="metadata">
                         <span class="date"><%= moment(comment.meta.createdAt).fromNow() %></span>
                     </div>

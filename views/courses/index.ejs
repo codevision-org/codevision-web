@@ -42,7 +42,11 @@
                     <div class="content">
                             <h4 class="ui header"><%= course.title %></h4>
                         <div class="meta">
-                            <span><strong><%= course.meta.author.username %></strong>, <%= moment(course.meta.createdAt).fromNow() %></span>
+                            <p><%= course.meta.author.username %>
+                                <% if(course.meta.author.roles.indexOf(5) > -1){ %>
+                                    <i id="small-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                                <% } %>
+                                , <%= moment(course.meta.createdAt).fromNow() %></p>
                         </div>
                         <br>
                         <div class="description">

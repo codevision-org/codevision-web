@@ -9,7 +9,11 @@
     </div>
     <div class="row thumbnail-row">
         <div class="item">
-            <div class="ui blue huge header"><%= user.username %></div>
+            <div class="ui blue huge header"><%= user.username %>
+                <% if(user.roles.indexOf(5) > -1){ %>
+                    <i id="large-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
+                <% } %>
+            </div>
             <div class="ui blue small header"><%= user.biography %></div>
         </div>
     </div>
@@ -64,7 +68,7 @@
         </div>
     </div>
     <% if(courses.length > 0) { %>
-        <div class="ui blue huge header white">Courses</div>
+        <h3 class="ui dividing header">Courses (<%= courses.length %>)</h3>
     <% } %>
     <% courses.forEach(function(course){ %>
         <div class="ui top attached raised blue segment">
@@ -76,7 +80,7 @@
                     <div class="content">
                             <h4 class="ui header"><%= course.title %></h4>
                         <div class="meta">
-                            <span><strong><%= course.meta.author.username %></strong>, <%= moment(course.meta.createdAt).fromNow() %></span>
+                            <span><%= moment(course.meta.createdAt).fromNow() %></span>
                         </div>
                         <br>
                         <div class="description">
