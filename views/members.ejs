@@ -1,0 +1,34 @@
+<% include partials/header %>
+<link rel="stylesheet" type="text/css" href="../public/stylesheets/main-no-background.css">
+
+<br>
+<br>
+<div class="ui page equal width grid">
+    <div class="ui container">
+        <div class="item">
+            <% users.forEach(function(user){ %>
+                <div class="ui top attached raised blue small segment">
+                        <div class="ui divided items">
+                            <div class="item">
+                                <div class="image">
+                                    <img id="users-img" class="ui small image" src="<%= user.avatar %>">
+                                </div>
+                                <div class="content">
+                                    <h4 class="ui header"><%= user.username %></h4>
+                                </div>
+                        </div>
+                        <div class="item">
+                                <div class="extra">
+                                    <a href="/users/<%= user._id %>" class="ui right floated circular right labeled icon button">
+                                        Visit Profile
+                                        <i class="right arrow icon"></i>
+                                    </a>
+                                    <div class="ui label">0 followers</div>
+                                </div>
+                            </div>
+                    </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

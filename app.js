@@ -22,7 +22,7 @@ var indexRoutes = require("./routes/index"),
 
 
 // Mongoose configuration
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 
 // Express configuration
 app.use(bodyParser.urlencoded({extended: true}));

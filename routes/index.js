@@ -21,6 +21,18 @@ router.get("/events", function(req, res){
     res.render("events");
 });
 
+router.get("/members", function(req, res){
+    User.find({}, function(err, users){
+        if(err){
+            console.log(err);
+            req.flash("error", "An error occured.");
+            res.redirect("/courses");
+        } else {
+            res.render("members", {users: users});
+        }
+    });
+});
+
 // Show register page
 router.get("/register", function(req, res){
     res.render("authentication/register");

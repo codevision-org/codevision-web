@@ -329,6 +329,19 @@ img {
     margin-top: 5%;
 }
 
+img.ui.image#users-img {
+    margin-top: 10%;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.ui.items>.item>.image {
+    max-width: 100px;
+}
+
 
 /*
     QuillJS
