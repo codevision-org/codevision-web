@@ -342,7 +342,7 @@ img.ui.image#users-img {
     max-width: 100px;
 }
 
-.ui.header>.icon#medium-role-icon {
+#medium-role-icon {
     font-size: 0.5em;
     margin-bottom: 35px;
 }
