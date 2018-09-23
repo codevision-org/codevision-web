@@ -70,7 +70,7 @@
                         <h4 class="ui header section"><%= section.title %></h4>
                         <div class="meta">
                             <span><strong><%= section.meta.author.username %></strong>
-                                <% if(course.meta.author.roles.indexOf(5) > -1){ %>
+                                <% if(section.author.roles.indexOf(5) > -1){ %>
                                     <i id="small-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
                                 <% } %>, <%= moment(section.meta.createdAt).fromNow() %></span>
                         </div>
@@ -117,7 +117,7 @@
                 </a>
                 <div class="content">
                     <a class="author" href="/users/<%= comment.meta.author._id %>"><%= comment.meta.author.username %>
-                        <% if(course.meta.author.roles.indexOf(5) > -1){ %>
+                        <% if(comment.author.roles.indexOf(5) > -1){ %>
                             <i id="small-role-icon" class="ui shield alternate icon staff-role-popup" data-title="Staff member" data-content="This user is part of the Codevision staff team."></i>
                         <% } %>
                     </a>
