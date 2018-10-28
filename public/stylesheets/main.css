@@ -362,6 +362,13 @@ img.ui.image#users-img {
     margin-bottom: 10px;
 }
 
+.banner {
+    display: none;
+}
+
+.banner-text {
+    display: none;
+}
 
 
 /*
