@@ -28,6 +28,7 @@ mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use("/public", express.static(path.join(__dirname, "public")));
+app.use(express.favicon("public/images/logo.png")); // Not tested!
 app.use(methodOverride("_method"));
 app.use(flash());
 app.locals.moment = require("moment");
