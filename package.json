@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pimkennedy/codevision-web.git"
+    "url": "git+https://github.com/codevision-org/codevision-web.git"
   },
   "author": "Pim Kennedy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pimkennedy/codevision-web/issues"
+    "url": "https://github.com/codevision-org/codevision-web/issues"
   },
-  "homepage": "https://github.com/pimkennedy/codevision-web#readme",
+  "homepage": "https://github.com/codevision-org/codevision-web#readme",
   "dependencies": {
     "async": "^2.6.1",
     "body-parser": "^1.18.3",
