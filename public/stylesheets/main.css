@@ -75,11 +75,9 @@ body {
 }
 
 #menu-logo {
-    background-image: url("../images/logo.png");
     width: 55px;
-    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background: url("../images/logo.png") no-repeat center;
 }
 
 .ui.right.labeled.icon.massive.button {
@@ -116,10 +114,7 @@ form {
 
 .ui.red.inverted.segment.flash-segment {
     width: 50%;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
+    margin: 25px auto;
 }
 
 .ui.blue.inverted.segment.flash-segment {
@@ -174,7 +169,7 @@ form {
 
 #courses-title {
     margin-top: 0.5em;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-size: 75px;
     letter-spacing: 4px;
     font-weight: 100;
@@ -182,14 +177,14 @@ form {
 
 .ui.blue.header.about-us-subtitle {
     margin-top: 2em;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-size: 40px;
     letter-spacing: 4px;
     font-weight: 100;
 }
 
 .ui.blue.header.about-us-text {
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     letter-spacing: 1.2px;
     font-weight: 200;
@@ -328,7 +323,7 @@ img {
 .ui.button.dropdown .menu {
     margin-top: 5%;
 }
-
+.ui.button
 img.ui.image#users-img {
     margin-top: 10%;
     border-radius: 100%;
