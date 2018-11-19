@@ -76,8 +76,7 @@ body {
 
 #menu-logo {
     width: 55px;
-    background-size: cover;
-    background: url("../images/logo.png") no-repeat center;
+    background: cover no-repeat center;
 }
 
 .ui.right.labeled.icon.massive.button {
@@ -112,6 +111,16 @@ form {
     width: 100%;
 }
 
+.ui.inverted.menu .item>a:not(.ui) {
+    color: rgba(255, 255, 255, .6);
+    transition: .4s ease-out;
+}
+
+.ui.inverted.menu .item>a:not(.ui):hover {
+    color: rgba(255, 255, 255, .9);
+    transition: .4s ease-out;
+}
+
 .ui.red.inverted.segment.flash-segment {
     width: 50%;
     margin: 25px auto;
@@ -127,6 +136,16 @@ form {
 
 .ui.secondary.pointing.menu .item {
     align-self: auto;
+}
+
+.ui.secondary.inverted.pointing.menu .item {
+    color: rgba(255, 255, 255, .9);
+    transition: .4s ease-out;
+}
+
+.ui.secondary.inverted.pointing.menu .item:hover {
+    color: rgba(255, 255, 255, .9);
+    transition: .4s ease-out;
 }
 
 .ui.secondary.inverted.pointing.menu .item .brand {

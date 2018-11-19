@@ -5,6 +5,7 @@ var express = require("express"),
     flash = require("connect-flash"),
     passport = require("passport"),
     path = require("path"),
+    favicon = require("serve-favicon"),
     methodOverride = require("method-override"),
     LocalStrategy = require("passport-local");
 
@@ -28,6 +29,7 @@ mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use("/public", express.static(path.join(__dirname, "public")));
+app.use(favicon(__dirname + '/public/images/logo inverted favicon.png'));
 app.use(methodOverride("_method"));
 app.use(flash());
 app.locals.moment = require("moment");
